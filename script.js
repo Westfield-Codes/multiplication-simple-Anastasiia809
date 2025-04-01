@@ -4,7 +4,6 @@
  * FLOWCHART: https://lucid.app/lucidchart/5a3164fd-459f-494d-9cae-b4a6be593b13/view
  */
 
-main()
 /* main controls the program. Calling askQuetions() it provides feedback depending on the 
  * number right returned: Either "Perfect!" or it says how many right out of the number asked. 
  * Set the numbers of quetions as the variable called quetions.
@@ -23,10 +22,11 @@ function main() {
  * @param: none
  * @return: score (0-Quetions)
  */
-function askQuestions(quetions) {
+function askQuestions(questions) {
     let question = 1;
+    let right = 0;
     while (question <= questions) {
-        right += askQuestions(question);
+        right += askQuestion(question);
         question ++;
     }
     return right;
@@ -38,8 +38,17 @@ function askQuestions(quetions) {
  * @return: integer (0 or 1)
  */
 function askQuestion(question){
-  askQuestion(question);
-  let a = Math.floor(Math.random()*9)+1;
-  let b = Math.floor(Math.random()*9)+1;
+  let a = Math.floor(Math.random()*9-3+1)+3;
+  let b = Math.floor(Math.random()*9-3+1)+3;
   let product = a * b;
+  let equation = "Question " + question + ": " + a + "*" + b + "=?";
+  let answer = prompt(equation);
+  if (answer == product) {
+    alert("Correct!");
+    return true;
+  }
+  else {
+    alert("Incorrect!") 
+    return false;
+  }
 }
