@@ -12,6 +12,7 @@
  * @return none
  */
 function main() {
+    let right = askQuestions(2);
 
 }
 
@@ -20,7 +21,8 @@ function main() {
  * @param: none
  * @return: {integer} score (0-questions)
  */
-function askQuestions() {
+function askQuestions(questions) {
+    return questions;
 
 }
 
@@ -30,5 +32,5 @@ function askQuestions() {
  * @return: {integer} (0 or 1) or {boolean}
  */
 function askQuestion(question){
-  
+  return true;
 }
