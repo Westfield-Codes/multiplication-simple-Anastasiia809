@@ -52,8 +52,8 @@ function setUp(){
  */
 
 function changeVar(variable){
-    let value = 3;
-    
+    let value = prompt("Choose your " + variable + " value");
+    value = parseInt(value);
     return value;
 }
 /* Function askQuestion(question) 
