@@ -58,12 +58,25 @@ function changeVar(variable){
 }
 /* Function askQuestion(question) 
  * Asks a multiplication question: 2 factors between low and high ranges
- * Provides feedback (correct?), returns true if correct, false if not * Adds missed factors to mistakes array.
+ * Provides feedback (correct?), returns true if correct, false if not 
+ * * Adds missed factors to mistakes array.
  * @param: {integer} question 
  * @return: boolean value 
  */
 function askQuestion(question){
-    return true;
+    let a = Math.floor(Math.random()*(high-low+1))+low;
+    let b = Math.floor(Math.random()*(high-low+1))+low;
+    let product = a * b;
+    let equation = "Question " + question + " : What is " + a + " * " + b + " =?";
+    let answer = prompt(equation);
+    if (answer == product) { 
+        alert("Correct!");
+        return true;
+    }
+    else {
+        alert("Incorrect!");
+        return false;
+    }
 }
 
 /* Function showStats()
@@ -77,7 +90,19 @@ function askQuestion(question){
  * @return: none
  */
 function showStats(score, questions){
-
+    let tables = true;
+    let factor = 0;
+    alert("You got " + score + " out of " + questions + " correct.");
+    let more = "any";
+    if (score == questions) alert("Perfection badge");
+    while (tables == true) {
+        let tables = confirm("Do you want to study " + more + " tables?");
+        if (tables == true) {
+            factor = prompt("Show table for which factor?");
+            showTable(factor);
+            more = "more";
+        }
+    }
 }
 
 /* Function showTable(factor)
